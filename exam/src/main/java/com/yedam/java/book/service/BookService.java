@@ -10,4 +10,5 @@ public interface BookService {
 	// 도서정보등록
 	public int insertBook(BookVO bookVO);
 	// 대여현황조회
+	public List<RentVO> getRentInfo();
 }

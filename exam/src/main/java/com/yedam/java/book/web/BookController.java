@@ -38,6 +38,10 @@ public class BookController {
 		return "book/list";
 	}
 	// 대여현황조회
-	
+	@GetMapping("rentList")
+	public String rentList(Model model) {
+		model.addAttribute("rentList", bookService.getRentInfo());
+		return"book/rentInfo";
+	}
 
 }

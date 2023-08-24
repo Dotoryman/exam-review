@@ -44,5 +44,23 @@
 		<button type="submit">등록</button>
 		<button type="button" onclick = "location.href='bookList'">조회</button>
 	</form>
+	<script>
+		document.querySelector('form[name="insertForm"]')
+				.addEventListener('submit', function(e){
+					e.preventDefault();
+					
+					let bookName = document.getElementsByName('bookName')[0];
+
+					if(bookName.value == ''){
+						alert('도서명이 입력되지 않았습니다.');
+						bookName.focus();
+						return;
+					}
+					alert('도서등록이 완료되었습니다.');
+					insertForm.submit();
+
+
+				});
+	</script>
 </body>
 </html>

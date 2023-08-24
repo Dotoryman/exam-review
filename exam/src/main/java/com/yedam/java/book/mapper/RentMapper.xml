@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.yedam.java.book.mapper.RentMapper">
+ 	<select id="selectBookRentInfo" resultType="RentVO">
+ 		select b.book_no
+      		 , b.book_name
+      		 , NVL(sum(r.rent_price), 0) as total_price
+      		 , count(r.rent_price) as rent_count
+		from book_tbl_06 b left outer join rent_tbl_06 r
+            			       on b.book_no = r.book_no
+		GROUP by b.book_no, b.book_name
+		order by book_no
+ 	</select>
+ </mapper>
